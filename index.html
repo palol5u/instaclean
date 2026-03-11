@@ -3,73 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InstaClean Pro | Fix 0</title>
+    <title>InstaClean Pro | Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
         .success-border { border-color: #22c55e !important; background-color: #f0fdf4 !important; }
         .loading-pulse { animation: pulse 1.5s infinite; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+        .zoom-overlay { transition: all 0.3s ease; cursor: zoom-in; }
+        .zoom-overlay:hover { transform: scale(1.02); filter: brightness(0.9); }
     </style>
 </head>
-<body class="bg-gray-50 min-h-screen pb-20 font-sans">
+<body class="bg-gray-50 min-h-screen pb-20">
 
-    <nav class="bg-white border-b border-gray-200 py-4 mb-8">
-        <div class="max-w-5xl mx-auto px-4 flex justify-between items-center">
+    <div id="imageModal" class="fixed inset-0 bg-black/95 z-50 hidden flex items-center justify-center p-4 cursor-zoom-out" onclick="closeModal()">
+        <span class="absolute top-5 right-10 text-white text-5xl font-light">&times;</span>
+        <img id="modalImg" src="" class="max-w-full max-h-full rounded-lg shadow-2xl">
+    </div>
+
+    <nav class="bg-white border-b border-gray-200 py-4 mb-10 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
             <div class="flex items-center space-x-2 text-purple-600">
                 <i class="fa-solid fa-bolt-lightning text-2xl"></i>
                 <span class="text-xl font-black tracking-tighter uppercase">InstaClean Turbo</span>
             </div>
-            <button onclick="location.reload()" class="text-xs font-bold text-gray-400 hover:text-red-500 transition">
-                <i class="fa-solid fa-rotate-right mr-1"></i> RESET
-            </button>
+            <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest hidden md:block">By DJ Volka</div>
         </div>
     </nav>
 
-    <main class="max-w-5xl mx-auto px-4">
+    <main class="max-w-6xl mx-auto px-4">
         
-        <div class="text-center mb-10">
-            <h1 class="text-3xl font-black text-gray-900 mb-2">Analyse des listes</h1>
-            <p class="text-gray-500 text-sm">Déposez vos fichiers pour identifier ceux qui ne vous suivent pas.</p>
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-black text-gray-900 mb-3 tracking-tight uppercase">Nettoyage de compte</h1>
+            <p class="text-gray-500 text-lg italic">Déposez vos fichiers pour identifier ceux qui ne vous suivent pas en retour.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-            <label for="fileFollowers" id="zoneFollowers" class="bg-white p-8 rounded-3xl border-2 border-dashed border-gray-300 transition-all text-center relative cursor-pointer hover:border-purple-400">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <label for="fileFollowers" id="zoneFollowers" class="bg-white p-12 rounded-3xl border-2 border-dashed border-gray-200 transition-all text-center relative cursor-pointer hover:border-purple-400 group">
                 <input type="file" id="fileFollowers" class="hidden" accept=".json">
-                <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <i class="fa-solid fa-users text-xl"></i>
+                <div class="w-16 h-16 bg-blue-50 text-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-users text-2xl"></i>
                 </div>
-                <h3 class="font-bold text-gray-800 text-sm">followers_1.json</h3>
-                <div id="statusFollowers" class="mt-2 text-[10px] font-black text-gray-400 uppercase tracking-widest text-center">En attente</div>
+                <h3 class="font-black text-gray-800 uppercase text-xs tracking-widest">Abonnés (Followers)</h3>
+                <div id="statusFollowers" class="mt-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest italic">Déposez followers_1.json</div>
             </label>
 
-            <label for="fileFollowing" id="zoneFollowing" class="bg-white p-8 rounded-3xl border-2 border-dashed border-gray-300 transition-all text-center relative cursor-pointer hover:border-purple-400">
+            <label for="fileFollowing" id="zoneFollowing" class="bg-white p-12 rounded-3xl border-2 border-dashed border-gray-200 transition-all text-center relative cursor-pointer hover:border-purple-400 group">
                 <input type="file" id="fileFollowing" class="hidden" accept=".json">
-                <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <i class="fa-solid fa-user-plus text-xl"></i>
+                <div class="w-16 h-16 bg-pink-50 text-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform text-2xl">
+                    <i class="fa-solid fa-user-plus"></i>
                 </div>
-                <h3 class="font-bold text-gray-800 text-sm">following.json</h3>
-                <div id="statusFollowing" class="mt-2 text-[10px] font-black text-gray-400 uppercase tracking-widest text-center">En attente</div>
+                <h3 class="font-black text-gray-800 uppercase text-xs tracking-widest">Abonnements (Following)</h3>
+                <div id="statusFollowing" class="mt-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest italic">Déposez following.json</div>
             </label>
         </div>
 
-        <div id="actionPanel" class="hidden text-center mb-10">
-            <div class="inline-flex items-center space-x-4 bg-gray-900 text-white p-2 pl-6 rounded-2xl shadow-2xl">
-                <span class="text-sm font-bold"><span id="countNonFollowers" class="text-purple-400">0</span> comptes à supprimer</span>
-                <button id="downloadBtn" class="bg-purple-600 hover:bg-purple-500 px-6 py-3 rounded-xl font-black text-xs uppercase transition">
-                    Exporter CSV
-                </button>
+        <div id="actionPanel" class="hidden text-center mb-12 animate-bounce">
+            <div class="inline-flex items-center space-x-6 bg-gray-900 text-white p-3 pl-8 rounded-3xl shadow-2xl border border-gray-800">
+                <div class="text-left">
+                    <p class="text-[10px] font-black uppercase text-gray-400 tracking-widest">Analyse terminée</p>
+                    <p class="text-xl font-bold"><span id="countNonFollowers" class="text-purple-400">0</span> <span class="text-sm font-light uppercase">Comptes à supprimer</span></p>
+                </div>
+                <button id="downloadBtn" class="bg-purple-600 hover:bg-purple-500 px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-tighter transition-all shadow-lg">Télécharger CSV</button>
             </div>
         </div>
 
-        <div id="resultCard" class="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden hidden">
-            <table class="w-full text-left">
-                <tbody id="tableBody" class="divide-y divide-gray-100"></tbody>
-            </table>
+        <div id="resultCard" class="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden hidden mb-20">
+            <div class="max-h-[500px] overflow-y-auto">
+                <table class="w-full text-left font-bold text-sm text-gray-800">
+                    <tbody id="tableBody" class="divide-y divide-gray-100"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="mt-24 border-t border-gray-200 pt-16">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black text-gray-900 mb-4 uppercase tracking-tighter text-purple-600">Comment récupérer vos fichiers ?</h2>
+                <p class="text-gray-500 text-sm font-bold uppercase tracking-widest">Cliquez sur une image pour l'agrandir</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <div class="bg-white p-5 rounded-3xl border border-gray-100 shadow-sm flex flex-col hover:border-purple-200 transition-all">
+                    <img src="photo1.jpg" onclick="openModal(this.src)" class="w-full h-56 object-cover rounded-2xl mb-5 zoom-overlay shadow-sm border border-gray-50">
+                    <span class="text-purple-600 font-black text-[10px] uppercase mb-2">Étape 01</span>
+                    <p class="text-xs text-gray-600 leading-relaxed font-semibold italic">
+                        Allez dans les réglages Instagram et choisissez la section <b>"Votre activité"</b>.
+                    </p>
+                </div>
+
+                <div class="bg-white p-5 rounded-3xl border border-gray-100 shadow-sm flex flex-col hover:border-purple-200 transition-all">
+                    <img src="photo2.jpg" onclick="openModal(this.src)" class="w-full h-56 object-cover rounded-2xl mb-5 zoom-overlay shadow-sm border border-gray-50">
+                    <span class="text-purple-600 font-black text-[10px] uppercase mb-2">Étape 02</span>
+                    <p class="text-xs text-gray-600 leading-relaxed font-semibold italic">
+                        Choisissez ensuite l'option <b>"Exporter vos informations"</b> pour accéder aux fichiers.
+                    </p>
+                </div>
+
+                <div class="bg-white p-5 rounded-3xl border border-gray-100 shadow-sm flex flex-col hover:border-purple-200 transition-all">
+                    <img src="photo3.jpg" onclick="openModal(this.src)" class="w-full h-56 object-cover rounded-2xl mb-5 zoom-overlay shadow-sm border border-gray-50">
+                    <span class="text-purple-600 font-black text-[10px] uppercase mb-2">Étape 03</span>
+                    <p class="text-xs text-gray-600 leading-relaxed font-semibold italic">
+                        Allez dans <b>"Personnaliser les informations"</b>, choisissez <b>uniquement</b> "Abonnés et abonnements", puis validez.
+                    </p>
+                </div>
+
+                <div class="bg-white p-5 rounded-3xl border border-gray-100 shadow-sm flex flex-col hover:border-purple-200 transition-all">
+                    <img src="photo4.jpg" onclick="openModal(this.src)" class="w-full h-56 object-cover rounded-2xl mb-5 zoom-overlay shadow-sm border border-gray-50">
+                    <span class="text-purple-600 font-black text-[10px] uppercase mb-2">Étape 04</span>
+                    <p class="text-xs text-gray-600 leading-relaxed font-semibold italic">
+                        Une fois le fichier reçu, <b>dézippez-le</b> et cherchez <i>followers_1.json</i> & <i>following.json</i> dans le dossier connections.
+                    </p>
+                </div>
+
+            </div>
         </div>
     </main>
 
+    <footer class="text-center py-10 text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em]">
+        © 2024 InstaClean Turbo | Développé par DJ Volka
+    </footer>
+
     <script>
+        function openModal(src) {
+            document.getElementById('imageModal').classList.remove('hidden');
+            document.getElementById('modalImg').src = src;
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            document.getElementById('imageModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
         let dataFollowers = null;
         let dataFollowing = null;
 
@@ -80,76 +147,70 @@
             if (!file) return;
             const statusLabel = document.getElementById(type === 'followers' ? 'statusFollowers' : 'statusFollowing');
             statusLabel.innerText = "Lecture...";
+            statusLabel.classList.add('loading-pulse');
 
             const reader = new FileReader();
             reader.onload = (e) => {
                 try {
                     const json = JSON.parse(e.target.result);
                     let list = [];
-
-                    // --- L'EXTRACTEUR UNIVERSEL ---
-                    const items = type === 'followers' ? json : (json.relationships_following || []);
                     
-                    list = items.map(item => {
-                        // On cherche le nom soit dans .title, soit dans .string_list_data[0].value
+                    // --- MOTEUR DE RECHERCHE ROBUSTE ---
+                    // Suivant si c'est followers ou following, la structure JSON change
+                    let rawData = [];
+                    if (type === 'followers') {
+                        rawData = Array.isArray(json) ? json : (json.relationships_followers || []);
+                    } else {
+                        rawData = json.relationships_following || (Array.isArray(json) ? json : []);
+                    }
+
+                    list = rawData.map(item => {
+                        // On cherche le nom dans .value ou dans .title
                         if (item.string_list_data && item.string_list_data[0] && item.string_list_data[0].value) {
                             return item.string_list_data[0].value;
                         }
-                        if (item.title) return item.title;
-                        return null;
-                    }).filter(name => name !== null);
+                        return item.title || null;
+                    }).filter(v => v);
 
                     if (type === 'followers') dataFollowers = list;
                     else dataFollowing = list;
 
-                    // Update UI
                     document.getElementById(type === 'followers' ? 'zoneFollowers' : 'zoneFollowing').classList.add('success-border');
-                    statusLabel.innerText = `${list.length} noms trouvés ✓`;
-                    statusLabel.classList.replace('text-gray-400', 'text-green-500');
-
+                    statusLabel.innerText = `${list.length} comptes chargés ✓`;
+                    statusLabel.classList.remove('loading-pulse', 'text-gray-400');
+                    statusLabel.classList.add('text-green-600');
                     checkReady();
-                } catch (err) {
-                    statusLabel.innerText = "Erreur fichier";
-                    console.error(err);
-                }
+                } catch (err) { statusLabel.innerText = "Erreur fichier"; }
             };
             reader.readAsText(file);
         }
 
         function checkReady() {
             if (dataFollowers && dataFollowing) {
-                const followersSet = new Set(dataFollowers);
-                // On garde ceux qui sont dans Following mais PAS dans Followers
-                const finalDiff = dataFollowing.filter(user => !followersSet.has(user));
-                
-                renderResults(finalDiff);
+                const fSet = new Set(dataFollowers);
+                const diff = dataFollowing.filter(u => !fSet.has(u));
+                document.getElementById('countNonFollowers').innerText = diff.length;
+                document.getElementById('tableBody').innerHTML = diff.map(u => `
+                    <tr class="hover:bg-purple-50/50 transition">
+                        <td class="px-8 py-4 flex items-center space-x-3 italic text-gray-800">
+                            <div class="w-6 h-6 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-[8px] font-black">${u.charAt(0).toUpperCase()}</div>
+                            <span>@${u}</span>
+                        </td>
+                        <td class="px-8 py-4 text-right">
+                            <a href="https://instagram.com/${u}" target="_blank" class="text-[9px] font-black uppercase bg-gray-900 text-white px-3 py-2 rounded-lg hover:bg-purple-600 transition">Profil</a>
+                        </td>
+                    </tr>
+                `).join('');
+                document.getElementById('actionPanel').classList.remove('hidden');
+                document.getElementById('resultCard').classList.remove('hidden');
+                document.getElementById('downloadBtn').onclick = () => {
+                    const blob = new Blob(["username\n" + diff.join("\n")], { type: 'text/csv' });
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(blob);
+                    a.download = "ma_liste_nettoyage.csv";
+                    a.click();
+                };
             }
-        }
-
-        function renderResults(list) {
-            document.getElementById('countNonFollowers').innerText = list.length;
-            const tbody = document.getElementById('tableBody');
-            tbody.innerHTML = list.map(user => `
-                <tr class="hover:bg-gray-50 transition">
-                    <td class="px-8 py-3 text-sm font-bold text-gray-800">@${user}</td>
-                    <td class="px-8 py-3 text-right">
-                        <a href="https://instagram.com/${user}" target="_blank" class="text-[10px] font-black bg-gray-100 px-3 py-1.5 rounded-lg hover:bg-purple-600 hover:text-white transition uppercase">Voir</a>
-                    </td>
-                </tr>
-            `).join('');
-
-            document.getElementById('actionPanel').classList.remove('hidden');
-            document.getElementById('resultCard').classList.remove('hidden');
-
-            document.getElementById('downloadBtn').onclick = () => {
-                const csv = "username\n" + list.join("\n");
-                const blob = new Blob([csv], {type: 'text/csv'});
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = "non_followers_instaclean.csv";
-                a.click();
-            };
         }
     </script>
 </body>
