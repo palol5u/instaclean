@@ -9,18 +9,30 @@
         .drag-glow:hover { box-shadow: 0 0 30px rgba(239, 68, 68, 0.4); transform: scale(1.02); }
         .step-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; }
         .step-card:hover { border-color: #ef4444; background: rgba(239, 68, 68, 0.05); }
+        .video-container { border: 1px solid rgba(239, 68, 68, 0.2); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
     </style>
 </head>
 <body class="bg-[#0a0a0c] text-white min-h-screen flex flex-col items-center p-8 font-sans">
 
     <div class="max-w-4xl w-full text-center mb-12">
-        <div class="inline-block px-4 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 text-[10px] font-black uppercase tracking-[0.3em] mb-4">
+        <div class="inline-block px-4 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 text-[10px] font-black uppercase tracking-[0.3em] mb-4 text-center">
             Accès Premium Confirmé 💎
         </div>
-        <h1 class="text-5xl font-black uppercase tracking-tighter italic bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent mb-4">
+        <h1 class="text-5xl font-black uppercase tracking-tighter italic bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent mb-4 text-center">
             Moteur Turbo Branché
         </h1>
-        <p class="text-gray-400 italic text-sm">Installation de ton assistant de nettoyage automatique.</p>
+        <p class="text-gray-400 italic text-sm text-center">Installation de ton assistant de nettoyage automatique.</p>
+    </div>
+
+    <div class="max-w-3xl w-full mb-16 video-container rounded-[35px] overflow-hidden bg-black/40">
+        <video controls class="w-full aspect-video bg-black">
+            <source src="tuto_premium.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la lecture de vidéos.
+        </video>
+        <div class="p-4 bg-white/5 flex items-center justify-center gap-3">
+            <i class="fa-solid fa-circle-play text-red-500 animate-pulse"></i>
+            <span class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">Tuto : Installer le bouton et lancer le nettoyage</span>
+        </div>
     </div>
 
     <div class="max-w-4xl w-full grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
@@ -36,7 +48,7 @@
         </div>
 
         <div class="step-card p-8 rounded-[40px] lg:scale-110 bg-white/[0.05] border-red-500/30 flex flex-col items-center text-center shadow-2xl">
-            <div class="text-red-500 font-black text-4xl mb-4">02</div>
+            <div class="text-red-500 font-black text-4xl mb-4 text-center">02</div>
             <h3 class="text-xs font-black uppercase tracking-widest mb-4">Installation</h3>
             
             <a href="javascript:(function(){const input=document.createElement('input');input.type='file';input.accept='.csv';input.onchange=e=>{const file=e.target.files[0];const reader=new FileReader();reader.onload=event=>{const lines=event.target.result.split('\n').slice(1);const users=lines.map(l=>l.trim().replace('@','')).filter(l=>l.length>0);if(users.length===0){alert('Fichier CSV vide !');return;}const csrftoken=document.cookie.split('; ').find(row=>row.startsWith('csrftoken='))?.split('=')[1];if(!csrftoken){alert('Erreur : Connecte-toi à Instagram d\'abord !');return;}const panel=document.createElement('div');panel.id='instaCleanPanel';panel.style='position:fixed;top:20px;left:50%;transform:translateX(-50%);width:350px;background:#1a1a1a;border:2px solid #ef4444;border-radius:20px;padding:20px;z-index:99999;box-shadow:0 20px 50px rgba(0,0,0,0.5);color:white;font-family:sans-serif;text-align:center;';panel.innerHTML=`<div style='font-weight:900;font-size:12px;margin-bottom:10px;color:#ef4444;text-transform:uppercase;letter-spacing:2px;'>InstaClean Turbo ACTIVE</div><div id='ic_user' style='font-size:16px;font-weight:bold;margin-bottom:5px;'>Initialisation...</div><div id='ic_status' style='font-size:10px;color:#888;margin-bottom:15px;'>Connexion au moteur d'action</div><div style='width:100%;background:#333;height:8px;border-radius:10px;overflow:hidden;'><div id='ic_bar' style='width:0%;height:100%;background:linear-gradient(90deg,#ef4444,#db2777);transition:width 0.5s;'></div></div><div id='ic_count' style='font-size:10px;margin-top:10px;font-weight:bold;'>0 / ${users.length}</div>`;document.body.appendChild(panel);(async function(){for(let i=0;i<users.length;i++){const user=users[i];document.getElementById('ic_user').innerText='@'+user;try{const sReq=await fetch('https://www.instagram.com/web/search/topsearch/?query='+user);const sRes=await sReq.json();const userId=sRes.users[0]?.user.pk;if(userId){await fetch('https://www.instagram.com/api/v1/friendships/destroy/'+userId+'/',{method:'POST',headers:{'X-CSRFToken':csrftoken,'X-IG-App-ID':'936619743392459'}});document.getElementById('ic_status').innerText='Désabonnement réussi ✅';}else{document.getElementById('ic_status').innerText='Introuvable ❌';}}catch(e){document.getElementById('ic_status').innerText='Erreur réseau...';}document.getElementById('ic_bar').style.width=((i+1)/users.length*100)+'%';document.getElementById('ic_count').innerText=(i+1)+' / '+users.length;const delay=Math.floor(Math.random()*(90000-60000+1)+60000);let timeLeft=Math.round(delay/1000);const timer=setInterval(()=>{timeLeft--;document.getElementById('ic_status').innerText='Anti-Ban : '+timeLeft+'s restantes';},1000);await new Promise(r=>setTimeout(r,delay));clearInterval(timer);}document.getElementById('ic_status').innerText='MISSION TERMINÉE 🥂';})();};reader.readAsText(file);};input.click();})();" 
@@ -54,7 +66,7 @@
         <div class="step-card p-8 rounded-[40px] relative overflow-hidden flex flex-col items-center text-center">
             <div class="text-red-500 font-black text-4xl mb-4 opacity-20">03</div>
             <h3 class="text-xs font-black uppercase tracking-widest mb-4">Action</h3>
-            <p class="text-[11px] text-gray-400 italic leading-relaxed">
+            <p class="text-[11px] text-gray-400 italic leading-relaxed text-center">
                 Va sur ton profil <b>Instagram.com</b>, clique sur le favori que tu viens d'ajouter, et choisis ton fichier <b>.csv</b>.
             </p>
             <div class="mt-4 text-[10px] p-3 bg-red-500/10 border border-red-500/20 rounded-2xl text-red-400 font-bold uppercase tracking-widest">
