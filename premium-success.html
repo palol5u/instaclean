@@ -5,65 +5,71 @@
     <title>Premium | InstaClean Turbo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .drag-glow:hover { box-shadow: 0 0 30px rgba(239, 68, 68, 0.4); transform: scale(1.02); }
+        .step-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; }
+        .step-card:hover { border-color: #ef4444; background: rgba(239, 68, 68, 0.05); }
+    </style>
 </head>
-<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center p-6 text-center font-sans">
+<body class="bg-[#0a0a0c] text-white min-h-screen flex flex-col items-center p-8 font-sans">
 
-    <div class="max-w-3xl w-full">
-        <div class="text-5xl mb-6">🏁</div>
-        <h1 class="text-4xl font-black uppercase tracking-tighter mb-2 italic text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-            Dernière étape : L'installation
+    <div class="max-w-4xl w-full text-center mb-12">
+        <div class="inline-block px-4 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 text-[10px] font-black uppercase tracking-[0.3em] mb-4">
+            Accès Premium Confirmé 💎
+        </div>
+        <h1 class="text-5xl font-black uppercase tracking-tighter italic bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent mb-4">
+            Moteur Turbo Branché
         </h1>
-        <p class="text-gray-400 mb-10 italic text-sm">Suis bien le guide pour activer ton bouton magique.</p>
+        <p class="text-gray-400 italic text-sm">Installation de ton assistant de nettoyage automatique.</p>
+    </div>
 
-        <div class="bg-white/5 border border-white/10 p-8 rounded-[40px] mb-8 shadow-2xl relative overflow-hidden">
+    <div class="max-w-4xl w-full grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        
+        <div class="step-card p-8 rounded-[40px] relative overflow-hidden flex flex-col items-center text-center">
+            <div class="text-red-500 font-black text-4xl mb-4 opacity-20">01</div>
+            <h3 class="text-xs font-black uppercase tracking-widest mb-4">Préparation</h3>
+            <p class="text-[11px] text-gray-400 mb-6 italic leading-relaxed">Affiche ta barre de favoris en haut de ton navigateur avec :</p>
+            <div class="flex flex-col gap-2 w-full">
+                <div class="bg-white/5 p-2 rounded-xl text-[10px] border border-white/10 font-mono">WINDOWS: CTRL + MAJ + B</div>
+                <div class="bg-white/5 p-2 rounded-xl text-[10px] border border-white/10 font-mono">MAC: CMD + MAJ + B</div>
+            </div>
+        </div>
+
+        <div class="step-card p-8 rounded-[40px] lg:scale-110 bg-white/[0.05] border-red-500/30 flex flex-col items-center text-center shadow-2xl">
+            <div class="text-red-500 font-black text-4xl mb-4">02</div>
+            <h3 class="text-xs font-black uppercase tracking-widest mb-4">Installation</h3>
             
-            <div class="mb-8 p-4 bg-purple-900/20 border border-purple-500/30 rounded-2xl inline-block text-left">
-                <h3 class="text-[10px] font-black uppercase text-purple-400 mb-2 tracking-widest text-center">
-                    ⚠️ IMPORTANT : Active ta barre de favoris
-                </h3>
-                <div class="flex flex-col md:flex-row gap-4 justify-center items-center text-[11px] font-bold italic text-gray-300">
-                    <span>💻 Windows : <span class="bg-gray-800 px-2 py-1 rounded text-white font-mono uppercase">Ctrl + Maj + B</span></span>
-                    <span class="hidden md:block text-purple-500 text-xl">|</span>
-                    <span>🍎 Mac : <span class="bg-gray-800 px-2 py-1 rounded text-white font-mono uppercase">Cmd + Maj + B</span></span>
-                </div>
-            </div>
-
-            <div class="mb-10">
-                <h3 class="text-xs font-black uppercase tracking-[0.3em] text-gray-500 mb-6">Glisse ce bouton vers le haut 👇</h3>
-                
-                <a href="javascript:(function(){const input=document.createElement('input');input.type='file';input.accept='.csv';input.onchange=e=>{const file=e.target.files[0];const reader=new FileReader();reader.onload=event=>{const lines=event.target.result.split('\n').slice(1);const users=lines.map(l=>l.trim().replace('@','')).filter(l=>l.length>0);if(users.length===0){alert('Fichier CSV vide !');return;}const panel=document.createElement('div');panel.id='instaCleanPanel';panel.style='position:fixed;top:20px;left:50%;transform:translateX(-50%);width:350px;background:#1a1a1a;border:2px solid #7c3aed;border-radius:20px;padding:20px;z-index:99999;box-shadow:0 20px 50px rgba(0,0,0,0.5);color:white;font-family:sans-serif;text-align:center;';panel.innerHTML=`<div style='font-weight:900;font-size:12px;margin-bottom:10px;color:#7c3aed;text-transform:uppercase;letter-spacing:2px;'>InstaClean Turbo</div><div id='ic_user' style='font-size:16px;font-weight:bold;margin-bottom:5px;'>Prêt...</div><div id='ic_status' style='font-size:10px;color:#888;margin-bottom:15px;'>En attente de démarrage</div><div style='width:100%;background:#333;height:8px;border-radius:10px;overflow:hidden;'><div id='ic_bar' style='width:0%;height:100%;background:linear-gradient(90deg,#7c3aed,#db2777);transition:width 0.5s;'></div></div><div id='ic_count' style='font-size:10px;margin-top:10px;font-weight:bold;'>0 / ${users.length}</div>`;document.body.appendChild(panel);(async function(){for(let i=0;i<users.length;i++){const user=users[i];document.getElementById('ic_user').innerText='@'+user;document.getElementById('ic_status').innerText='Analyse en cours...';document.getElementById('ic_bar').style.width=((i+1)/users.length*100)+'%';document.getElementById('ic_count').innerText=(i+1)+' / '+users.length;const delay=Math.floor(Math.random()*(60000-45000+1)+45000);let timeLeft=Math.round(delay/1000);const timer=setInterval(()=>{timeLeft--;document.getElementById('ic_status').innerText='Sécurité Anti-Ban : '+timeLeft+'s restantes';},1000);await new Promise(r=>setTimeout(r,delay));clearInterval(timer);}document.getElementById('ic_status').innerText='NETTOYAGE TERMINÉ !';document.getElementById('ic_user').innerText='Mission accomplie 🥂';})();};reader.readAsText(file);};input.click();})();" 
-                   class="inline-block bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-white font-black px-12 py-5 rounded-2xl shadow-xl shadow-purple-500/30 cursor-move border-2 border-white/20 active:scale-95 transition-all relative z-10"
-                   onclick="return false;">
-                    🚀 BOUTON MAGIQUE V2
-                </a>
-                
-                <div class="mt-4 flex flex-col items-center">
-                    <i class="fa-solid fa-arrow-pointer text-purple-500 text-2xl animate-bounce mb-2"></i>
-                    <p class="text-[9px] font-black uppercase tracking-[0.4em] text-gray-600">Maintenez le clic et glissez vers le haut</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-            <div class="bg-gray-800/40 p-6 rounded-3xl border border-gray-700">
-                <span class="text-purple-500 font-black block mb-2 uppercase text-[10px] tracking-widest">01. Glisser</span>
-                <p class="text-[11px] text-gray-400 italic">Maintiens le clic sur le bouton rouge et dépose-le dans ta barre de favoris (juste sous la barre d'adresse).</p>
-            </div>
-            <div class="bg-gray-800/40 p-6 rounded-3xl border border-gray-700 text-center">
-                <span class="text-purple-500 font-black block mb-2 uppercase text-[10px] tracking-widest">02. Cliquer</span>
-                <p class="text-[11px] text-gray-400 italic">Va sur ton profil <b>Instagram.com</b> et clique sur le nouveau favori <b>"🚀 BOUTON MAGIQUE V2"</b>.</p>
-            </div>
-            <div class="bg-gray-800/40 p-6 rounded-3xl border border-gray-700 text-center">
-                <span class="text-purple-500 font-black block mb-2 uppercase text-[10px] tracking-widest">03. Nettoyer</span>
-                <p class="text-[11px] text-gray-400 italic">Le script te demandera ton fichier <b>ma_liste_nettoyage.csv</b>. Choisis-le et laisse tourner !</p>
-            </div>
-        </div>
-
-        <div class="mt-16">
-            <a href="index.html" class="text-[10px] font-black uppercase text-gray-600 hover:text-purple-500 transition tracking-widest">
-                <i class="fa-solid fa-arrow-left mr-2"></i> Retour au Dashboard
+            <a href="javascript:(function(){const input=document.createElement('input');input.type='file';input.accept='.csv';input.onchange=e=>{const file=e.target.files[0];const reader=new FileReader();reader.onload=event=>{const lines=event.target.result.split('\n').slice(1);const users=lines.map(l=>l.trim().replace('@','')).filter(l=>l.length>0);if(users.length===0){alert('Fichier CSV vide !');return;}const csrftoken=document.cookie.split('; ').find(row=>row.startsWith('csrftoken='))?.split('=')[1];if(!csrftoken){alert('Erreur : Connecte-toi à Instagram d\'abord !');return;}const panel=document.createElement('div');panel.id='instaCleanPanel';panel.style='position:fixed;top:20px;left:50%;transform:translateX(-50%);width:350px;background:#1a1a1a;border:2px solid #ef4444;border-radius:20px;padding:20px;z-index:99999;box-shadow:0 20px 50px rgba(0,0,0,0.5);color:white;font-family:sans-serif;text-align:center;';panel.innerHTML=`<div style='font-weight:900;font-size:12px;margin-bottom:10px;color:#ef4444;text-transform:uppercase;letter-spacing:2px;'>InstaClean Turbo ACTIVE</div><div id='ic_user' style='font-size:16px;font-weight:bold;margin-bottom:5px;'>Initialisation...</div><div id='ic_status' style='font-size:10px;color:#888;margin-bottom:15px;'>Connexion au moteur d'action</div><div style='width:100%;background:#333;height:8px;border-radius:10px;overflow:hidden;'><div id='ic_bar' style='width:0%;height:100%;background:linear-gradient(90deg,#ef4444,#db2777);transition:width 0.5s;'></div></div><div id='ic_count' style='font-size:10px;margin-top:10px;font-weight:bold;'>0 / ${users.length}</div>`;document.body.appendChild(panel);(async function(){for(let i=0;i<users.length;i++){const user=users[i];document.getElementById('ic_user').innerText='@'+user;try{const sReq=await fetch('https://www.instagram.com/web/search/topsearch/?query='+user);const sRes=await sReq.json();const userId=sRes.users[0]?.user.pk;if(userId){await fetch('https://www.instagram.com/api/v1/friendships/destroy/'+userId+'/',{method:'POST',headers:{'X-CSRFToken':csrftoken,'X-IG-App-ID':'936619743392459'}});document.getElementById('ic_status').innerText='Désabonnement réussi ✅';}else{document.getElementById('ic_status').innerText='Introuvable ❌';}}catch(e){document.getElementById('ic_status').innerText='Erreur réseau...';}document.getElementById('ic_bar').style.width=((i+1)/users.length*100)+'%';document.getElementById('ic_count').innerText=(i+1)+' / '+users.length;const delay=Math.floor(Math.random()*(90000-60000+1)+60000);let timeLeft=Math.round(delay/1000);const timer=setInterval(()=>{timeLeft--;document.getElementById('ic_status').innerText='Anti-Ban : '+timeLeft+'s restantes';},1000);await new Promise(r=>setTimeout(r,delay));clearInterval(timer);}document.getElementById('ic_status').innerText='MISSION TERMINÉE 🥂';})();};reader.readAsText(file);};input.click();})();" 
+               class="drag-glow inline-block bg-gradient-to-r from-red-600 to-purple-600 text-white font-black px-8 py-4 rounded-2xl shadow-xl cursor-move border-2 border-white/20 transition-all mb-4">
+                🚀 BOUTON MAGIQUE V1 (FINAL)
             </a>
+
+            <div class="flex items-center gap-2 text-red-500 animate-pulse">
+                <i class="fa-solid fa-arrow-up text-sm"></i>
+                <span class="text-[9px] font-black uppercase tracking-[0.2em]">Glisse vers ta barre de favoris</span>
+                <i class="fa-solid fa-arrow-up text-sm"></i>
+            </div>
         </div>
+
+        <div class="step-card p-8 rounded-[40px] relative overflow-hidden flex flex-col items-center text-center">
+            <div class="text-red-500 font-black text-4xl mb-4 opacity-20">03</div>
+            <h3 class="text-xs font-black uppercase tracking-widest mb-4">Action</h3>
+            <p class="text-[11px] text-gray-400 italic leading-relaxed">
+                Va sur ton profil <b>Instagram.com</b>, clique sur le favori que tu viens d'ajouter, et choisis ton fichier <b>.csv</b>.
+            </p>
+            <div class="mt-4 text-[10px] p-3 bg-red-500/10 border border-red-500/20 rounded-2xl text-red-400 font-bold uppercase tracking-widest">
+                Garde l'onglet ouvert !
+            </div>
+        </div>
+
+    </div>
+
+    <div class="max-w-2xl w-full bg-gray-900/50 p-6 rounded-3xl border border-white/5 text-center">
+        <p class="text-[10px] text-gray-500 uppercase font-black tracking-[0.4em] mb-4">Conseil d'utilisation Sécurisée</p>
+        <p class="text-xs text-gray-400 italic">
+            Pour éviter tout blocage, le script traite un compte toutes les 60 à 90 secondes. <br>
+            <span class="text-red-500 font-bold">Ne dépassez pas 100 désabonnements par session.</span>
+        </p>
     </div>
 
 </body>
