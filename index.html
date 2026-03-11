@@ -39,14 +39,14 @@
     <main class="max-w-6xl mx-auto px-4">
         
         <div class="text-center mb-12">
-            <h1 class="text-4xl font-black text-gray-900 mb-3 tracking-tight uppercase tracking-tighter">InstaClean Pro</h1>
-            <p class="text-gray-500 text-lg italic font-medium">Débusquez ceux qui ne vous suivent pas en retour.</p>
+            <h1 class="text-4xl font-black text-gray-900 mb-3 tracking-tight uppercase tracking-tighter text-center">InstaClean Pro</h1>
+            <p class="text-gray-500 text-lg italic font-medium text-center">Débusquez ceux qui ne vous suivent pas en retour.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             <label for="fileFollowers" id="zoneFollowers" class="bg-white p-12 rounded-3xl border-2 border-dashed border-gray-200 transition-all text-center relative cursor-pointer hover:border-purple-400 group">
                 <input type="file" id="fileFollowers" class="hidden" accept=".json">
-                <div class="w-16 h-16 bg-blue-50 text-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform text-2xl"><i class="fa-solid fa-users"></i></div>
+                <div class="w-16 h-16 bg-blue-50 text-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform text-2xl text-center"><i class="fa-solid fa-users"></i></div>
                 <h3 class="font-black text-gray-800 uppercase text-xs tracking-widest text-center">Abonnés (Followers)</h3>
                 <div id="statusFollowers" class="mt-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest italic text-center">Déposez followers_1.json</div>
             </label>
@@ -86,7 +86,7 @@
 
         <div id="resultCard" class="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden hidden mb-20">
             <div class="max-h-[500px] overflow-y-auto">
-                <table class="w-full text-left font-bold text-sm text-gray-800 italic">
+                <table class="w-full text-left font-bold text-sm text-gray-800 italic text-center">
                     <tbody id="tableBody" class="divide-y divide-gray-100"></tbody>
                 </table>
             </div>
@@ -94,12 +94,24 @@
 
         <div class="mt-24 border-t border-gray-200 pt-16">
             <div class="text-center mb-16 font-black uppercase tracking-tighter text-purple-600 italic">
-                <h2 class="text-3xl mb-4">Guide de récupération</h2>
-                <p class="text-gray-500 text-sm font-bold uppercase tracking-widest">Cliquez sur une image pour l'agrandir</p>
+                <h2 class="text-3xl mb-4 text-center">Guide de récupération</h2>
+                <p class="text-gray-500 text-sm font-bold uppercase tracking-widest text-center">Regardez la vidéo ci-dessous puis suivez les étapes</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto mb-16 rounded-[35px] overflow-hidden border border-gray-200 shadow-xl bg-white p-2">
+                <video controls class="w-full rounded-[28px] bg-black shadow-inner">
+                    <source src="guide_json.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+                <div class="py-3 px-6 text-center">
+                    <span class="text-[10px] font-black uppercase tracking-[0.3em] text-purple-500 italic">
+                        <i class="fa-solid fa-play mr-2"></i> Tutoriel vidéo : Comment récupérer vos fichiers
+                    </span>
+                </div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white p-5 rounded-3xl border border-gray-100 shadow-sm flex flex-col hover:border-purple-200 transition-all">
+                <div class="bg-white p-5 rounded-3xl border border-gray-100 shadow-sm flex flex-col hover:border-purple-200 transition-all text-center">
                     <img src="photo1.jpg" onclick="openModal(this.src)" class="w-full h-56 object-cover rounded-2xl mb-5 zoom-overlay shadow-sm border border-gray-50">
                     <span class="text-purple-600 font-black text-[10px] uppercase mb-2">Étape 01</span>
                     <p class="text-xs text-gray-600 leading-relaxed font-semibold italic text-center">Allez dans les réglages et choisissez la section <b>"Votre activité"</b>.</p>
@@ -107,17 +119,17 @@
                 <div class="bg-white p-5 rounded-3xl border border-gray-100 shadow-sm flex flex-col hover:border-purple-200 transition-all text-center">
                     <img src="photo2.jpg" onclick="openModal(this.src)" class="w-full h-56 object-cover rounded-2xl mb-5 zoom-overlay shadow-sm border border-gray-50">
                     <span class="text-purple-600 font-black text-[10px] uppercase mb-2">Étape 02</span>
-                    <p class="text-xs text-gray-600 leading-relaxed font-semibold italic">Choisissez l'option <b>"Exporter vos informations"</b>.</p>
+                    <p class="text-xs text-gray-600 leading-relaxed font-semibold italic text-center">Choisissez l'option <b>"Exporter vos informations"</b>.</p>
                 </div>
                 <div class="bg-white p-5 rounded-3xl border border-gray-100 shadow-sm flex flex-col hover:border-purple-200 transition-all text-center">
                     <img src="photo3.jpg" onclick="openModal(this.src)" class="w-full h-56 object-cover rounded-2xl mb-5 zoom-overlay shadow-sm border border-gray-50">
                     <span class="text-purple-600 font-black text-[10px] uppercase mb-2">Étape 03</span>
-                    <p class="text-xs text-gray-600 leading-relaxed font-semibold italic">Choisissez <b>JSON</b> et <b>"Abonnés"</b> dans Personnaliser.</p>
+                    <p class="text-xs text-gray-600 leading-relaxed font-semibold italic text-center">Choisissez <b>JSON</b> et <b>"Abonnés"</b> dans Personnaliser.</p>
                 </div>
                 <div class="bg-white p-5 rounded-3xl border border-gray-100 shadow-sm flex flex-col hover:border-purple-200 transition-all text-center">
                     <img src="photo4.jpg" onclick="openModal(this.src)" class="w-full h-56 object-cover rounded-2xl mb-5 zoom-overlay shadow-sm border border-gray-50">
                     <span class="text-purple-600 font-black text-[10px] uppercase mb-2">Étape 04</span>
-                    <p class="text-xs text-gray-600 leading-relaxed font-semibold italic"><b>Dézippez le ZIP</b> et prenez les fichiers dans "connections".</p>
+                    <p class="text-xs text-gray-600 leading-relaxed font-semibold italic text-center"><b>Dézippez le ZIP</b> et prenez les fichiers dans "connections".</p>
                 </div>
             </div>
         </div>
@@ -156,7 +168,6 @@
                     const json = JSON.parse(e.target.result);
                     let list = [];
 
-                    // TA LOGIQUE EXACTE POUR LE JSON
                     const items = type === 'followers' ? (Array.isArray(json) ? json : []) : (json.relationships_following || []);
                     
                     list = items.map(item => {
@@ -199,7 +210,7 @@
             
             tbody.innerHTML = list.map(u => `
                 <tr class="hover:bg-purple-50 transition">
-                    <td class="px-8 py-4 flex items-center space-x-3 italic text-gray-800">
+                    <td class="px-8 py-4 flex items-center space-x-3 italic text-gray-800 text-center">
                         <div class="w-6 h-6 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-[8px] font-black">${u.charAt(0).toUpperCase()}</div>
                         <span>@${u}</span>
                     </td>
@@ -212,7 +223,6 @@
             document.getElementById('actionPanel').classList.remove('hidden');
             document.getElementById('resultCard').classList.remove('hidden');
 
-            // TA LOGIQUE EXACTE POUR LE CSV
             document.getElementById('downloadBtn').onclick = () => {
                 const csvHeader = "username\n";
                 const csvRows = list.join("\n");
