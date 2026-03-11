@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ultra Gold | InstaClean Turbo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background: #050505; color: white; font-family: 'Inter', sans-serif; }
+        .gold-gradient { background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gold-button { background: linear-gradient(135deg, #BF953F, #B38728); box-shadow: 0 10px 40px rgba(179, 135, 40, 0.4); }
+        .gold-border { border: 1px solid rgba(191, 149, 63, 0.3); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-8">
+
+    <div class="max-w-4xl w-full text-center">
+        <h1 class="text-6xl font-black uppercase italic gold-gradient mb-4">Pack Ultra Gold</h1>
+        <p class="text-gray-500 mb-12 tracking-[0.2em] text-xs font-bold uppercase">Système de Nettoyage Automatique V2.4</p>
+
+        <div class="max-w-xl mx-auto p-12 rounded-[50px] bg-white/[0.02] gold-border shadow-2xl backdrop-blur-md">
+            
+            <a href="javascript:(function(){const APP_ID='936619743392459';const csrftoken=document.cookie.split('; ').find(row=>row.startsWith('csrftoken='))?.split('=')[1];if(!csrftoken){alert('Connecte-toi à Instagram !');return;}const panel=document.createElement('div');panel.id='goldPanel';panel.style='position:fixed;top:20px;left:50%;transform:translateX(-50%);width:380px;background:#000;border:2px solid #BF953F;border-radius:30px;padding:25px;z-index:99999;box-shadow:0 25px 60px rgba(0,0,0,0.8);color:white;font-family:sans-serif;text-align:center;';panel.innerHTML=`<div style='font-weight:900;font-size:14px;margin-bottom:15px;color:#BF953F;text-transform:uppercase;letter-spacing:3px;'>Ultra Gold Scanner</div><div id='g_status' style='font-size:16px;font-weight:bold;margin-bottom:5px;'>Initialisation...</div><div id='g_info' style='font-size:11px;color:#888;margin-bottom:15px;'>Prêt au scan</div><div style='width:100%;background:#222;height:8px;border-radius:10px;overflow:hidden;'><div id='g_bar' style='width:0%;height:100%;background:linear-gradient(90deg,#BF953F,#FCF6BA);transition:all 0.5s;'></div></div><div id='g_count' style='font-size:10px;margin-top:10px;font-weight:bold;color:#BF953F;'>Action en attente</div>`;document.body.appendChild(panel);async function fetchAll(endpoint){let list=[];let maxId='';do{const res=await fetch('https://www.instagram.com/api/v1/friendships/'+endpoint+'/?count=100&max_id='+maxId,{headers:{'X-IG-App-ID':APP_ID}});const data=await res.json();list=list.concat(data.users.map(u=>({user_id:u.pk,username:u.username})));maxId=data.next_max_id;document.getElementById('g_status').innerText='Scan : '+list.length+' identifiés';}while(maxId);return list;}(async function(){try{const username=window.location.pathname.replace(/\//g,'');const uReq=await fetch('https://www.instagram.com/api/v1/users/web_profile_info/?username='+username,{headers:{'X-IG-App-ID':APP_ID}});const uData=await uReq.json();const myId=uData.data.user.id;document.getElementById('g_info').innerText='Lecture des Abonnés...';const followers=await fetchAll(myId+'/followers');const fIds=new Set(followers.map(u=>u.user_id));document.getElementById('g_bar').style.width='50%';document.getElementById('g_info').innerText='Lecture des Abonnements...';const following=await fetchAll(myId+'/following');const toUnfollow=following.filter(u=>!fIds.has(u.user_id));document.getElementById('g_bar').style.width='100%';document.getElementById('g_status').innerText=toUnfollow.length+' cibles trouvées';for(let i=0;i<toUnfollow.length;i++){const user=toUnfollow[i];document.getElementById('g_status').innerText='@'+user.username;document.getElementById('g_count').innerText='ACTION '+(i+1)+' / '+toUnfollow.length;/* ACTION ET VALIDATION */await fetch('https://www.instagram.com/api/v1/friendships/destroy/'+user.user_id+'/',{method:'POST',headers:{'X-CSRFToken':csrftoken,'X-IG-App-ID':APP_ID}});document.getElementById('g_status').innerText='✅ @'+user.username;document.getElementById('g_info').innerText='Action validée !';/* DELAI */const delay=Math.floor(Math.random()*(90000-60000+1)+60000);let s=Math.round(delay/1000);const timer=setInterval(()=>{s--;document.getElementById('g_info').innerText='Sécurité Anti-Ban : '+s+'s';if(s<=0)clearInterval(timer);},1000);await new Promise(r=>setTimeout(r,delay));}}catch(e){document.getElementById('g_status').innerText='ERREUR';document.getElementById('g_info').innerText='Rafraîchir la page';}})();})();" 
+               class="gold-button inline-block text-black font-black px-12 py-5 rounded-2xl transition-all hover:scale-105 active:scale-95 mb-8">
+                🚀 BOUTON MAGIQUE ULTRA GOLD V2.4
+            </a>
+            
+            <p class="text-[10px] text-yellow-500/50 uppercase tracking-[0.3em] font-black italic">
+                Glisse-moi dans tes favoris
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
