@@ -3,15 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InstaClean Pro | Dashboard</title>
+    
+    <title>InstaClean Pro | Nettoyer son compte Instagram automatiquement</title>
+    <meta name="description" content="Découvrez InstaClean Turbo et Ultra Gold. L'outil n°1 pour identifier et supprimer ceux qui ne vous suivent pas en retour sur Instagram. Rapide, sécurisé et automatique.">
+    <meta name="keywords" content="désabonnement masse instagram, unfollow instagram gratuit, supprimer abonnements instagram, qui ne me suit pas en retour, clean instagram, InstaClean Pro, DJ Volka">
+    <meta name="author" content="DJ Volka">
+    <link rel="canonical" href="https://ton-site.vercel.app/">
+    
+    <meta property="og:title" content="InstaClean Pro | Nettoyer son compte Instagram">
+    <meta property="og:description" content="Supprimez vos abonnements inutiles en un clic. Sécurité anti-ban incluse.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="logo-gold.png">
+
+    <link rel="icon" type="image/png" href="logo-gold.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; background: #f9fafb; }
         .success-border { border-color: #22c55e !important; background-color: #f0fdf4 !important; }
         .loading-pulse { animation: pulse 1.5s infinite; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
@@ -21,7 +33,7 @@
         .gold-text { background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
-<body class="bg-gray-50 min-h-screen pb-20">
+<body class="min-h-screen pb-20">
 
     <div id="imageModal" class="fixed inset-0 bg-black/95 z-50 hidden flex items-center justify-center p-4 cursor-zoom-out" onclick="closeModal()">
         <span class="absolute top-5 right-10 text-white text-5xl font-light">&times;</span>
@@ -32,29 +44,34 @@
         <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
             <div class="flex items-center space-x-2 text-purple-600">
                 <i class="fa-solid fa-bolt-lightning text-2xl"></i>
-                <span class="text-xl font-black tracking-tighter uppercase">InstaClean Turbo</span>
+                <span class="text-xl font-black tracking-tighter uppercase">InstaClean Pro</span>
             </div>
-            <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest hidden md:block">By DJ Volka</div>
+            <div class="flex items-center space-x-4">
+                <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest hidden md:block">By DJ Volka</span>
+                <button onclick="location.reload()" class="text-xs font-bold text-red-500 hover:bg-red-50 p-2 rounded-lg transition">
+                    <i class="fa-solid fa-rotate-right"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
     <main class="max-w-6xl mx-auto px-4">
         
         <div class="text-center mb-12">
-            <h1 class="text-4xl font-black text-gray-900 mb-3 tracking-tight uppercase tracking-tighter text-center">InstaClean Pro</h1>
-            <p class="text-gray-500 text-lg italic font-medium text-center">Débusquez ceux qui ne vous suivent pas en retour.</p>
+            <h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-3 tracking-tighter uppercase">InstaClean Pro</h1>
+            <p class="text-gray-500 text-lg italic font-medium">L'outil n°1 pour débusquer ceux qui ne vous suivent pas en retour.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 text-left">
             
-            <div class="bg-white p-8 rounded-[40px] shadow-xl border border-gray-100 flex flex-col justify-between text-center">
+            <div class="bg-white p-10 rounded-[40px] shadow-xl border border-gray-100 flex flex-col justify-between text-center">
                 <div>
                     <span class="text-[10px] font-black uppercase tracking-widest text-purple-500">Nettoyage Semi-Auto</span>
                     <h3 class="text-2xl font-black text-gray-900 uppercase italic mt-2">Pack Turbo 🚀</h3>
-                    <p class="text-gray-500 text-xs mt-4 mb-6 italic">Utilisez vos fichiers JSON pour désabonner tout le monde en un clic.</p>
+                    <p class="text-gray-500 text-sm mt-4 mb-8 italic">Utilisez vos fichiers JSON pour identifier tout le monde en un clic. Désabonnement manuel.</p>
                 </div>
                 <div class="text-center">
-                    <p class="text-3xl font-black mb-4">1,00€</p>
+                    <p class="text-3xl font-black mb-6">1,00€</p>
                     <div class="flex justify-center">
                         <stripe-buy-button
                             buy-button-id="buy_btn_1T9oJ8Kgj51UYiolkpwG3pzJ"
@@ -64,15 +81,15 @@
                 </div>
             </div>
 
-            <div class="gold-card p-8 rounded-[40px] shadow-2xl flex flex-col justify-between relative overflow-hidden text-center">
+            <div class="gold-card p-10 rounded-[40px] shadow-2xl flex flex-col justify-between relative overflow-hidden text-center">
                 <div class="absolute top-4 right-4 rotate-12 opacity-20 text-4xl text-yellow-500 font-black italic">ULTRA</div>
                 <div>
                     <span class="text-[10px] font-black uppercase tracking-widest text-yellow-500">100% Automatique ✨</span>
                     <h3 class="text-2xl font-black gold-text uppercase italic mt-2">Pack Ultra Gold 👑</h3>
-                    <p class="text-gray-300 text-xs mt-4 mb-6 italic"><b>Oubliez le guide et les fichiers JSON.</b> Le script scanne et nettoie tout directement sur Insta. <b>Zéro risque de ban.</b></p>
+                    <p class="text-gray-300 text-sm mt-4 mb-8 italic"><b>Oubliez le guide et les fichiers JSON.</b> Le script scanne et nettoie tout directement sur Insta. <b>Zéro risque de ban.</b></p>
                 </div>
                 <div class="text-center">
-                    <p class="text-3xl font-black mb-4 gold-text">4,99€</p>
+                    <p class="text-3xl font-black mb-6 gold-text">4,99€</p>
                     <div class="flex justify-center">
                         <stripe-buy-button
                             buy-button-id="buy_btn_1T9vxZKgj51UYiolcTTtHQws"
@@ -81,48 +98,57 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
         <div class="text-center mb-10">
-            <h2 class="text-xs font-black uppercase tracking-[0.4em] text-gray-400 italic text-center">Analyse Gratuite (Requiert vos fichiers)</h2>
+            <h2 class="text-xs font-black uppercase tracking-[0.4em] text-gray-400 italic">Analyse Gratuite (Requiert vos fichiers JSON)</h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <label for="fileFollowers" id="zoneFollowers" class="bg-white p-12 rounded-3xl border-2 border-dashed border-gray-200 transition-all text-center relative cursor-pointer hover:border-purple-400 group">
+            <label for="fileFollowers" id="zoneFollowers" class="bg-white p-10 rounded-3xl border-2 border-dashed border-gray-200 transition-all text-center relative cursor-pointer hover:border-purple-400 group">
                 <input type="file" id="fileFollowers" class="hidden" accept=".json">
-                <div class="w-16 h-16 bg-blue-50 text-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform text-2xl"><i class="fa-solid fa-users"></i></div>
-                <h3 class="font-black text-gray-800 uppercase text-xs tracking-widest text-center">Abonnés (Followers)</h3>
-                <div id="statusFollowers" class="mt-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest italic text-center">Déposez followers_1.json</div>
+                <div class="w-16 h-16 bg-blue-50 text-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-users text-2xl"></i>
+                </div>
+                <h3 class="font-bold text-gray-800">followers_1.json</h3>
+                <div id="statusFollowers" class="mt-2 text-[10px] font-black text-gray-400 uppercase tracking-widest">Cliquez ou glissez le fichier</div>
             </label>
 
-            <label for="fileFollowing" id="zoneFollowing" class="bg-white p-12 rounded-3xl border-2 border-dashed border-gray-200 transition-all text-center relative cursor-pointer hover:border-purple-400 group">
+            <label for="fileFollowing" id="zoneFollowing" class="bg-white p-10 rounded-3xl border-2 border-dashed border-gray-200 transition-all text-center relative cursor-pointer hover:border-purple-400 group">
                 <input type="file" id="fileFollowing" class="hidden" accept=".json">
-                <div class="w-16 h-16 bg-pink-50 text-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform text-2xl"><i class="fa-solid fa-user-plus text-2xl"></i></div>
-                <h3 class="font-black text-gray-800 uppercase text-xs tracking-widest text-center">Abonnements (Following)</h3>
-                <div id="statusFollowing" class="mt-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest italic text-center">Déposez following.json</div>
+                <div class="w-16 h-16 bg-pink-50 text-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-user-plus text-2xl"></i>
+                </div>
+                <h3 class="font-bold text-gray-800">following.json</h3>
+                <div id="statusFollowing" class="mt-2 text-[10px] font-black text-gray-400 uppercase tracking-widest">Cliquez ou glissez le fichier</div>
             </label>
         </div>
 
         <div id="actionPanel" class="hidden text-center mb-12">
             <div class="inline-flex items-center space-x-6 bg-gray-900 text-white p-3 pl-8 rounded-3xl shadow-2xl border border-gray-800">
                 <div class="text-left">
-                    <p class="text-[10px] font-black uppercase text-gray-400 tracking-widest">Analyse terminée</p>
-                    <p class="text-xl font-bold"><span id="countNonFollowers" class="text-purple-400">0</span> <span class="text-sm font-light uppercase">Comptes identifiés</span></p>
+                    <p class="text-[10px] font-black uppercase text-gray-400 tracking-widest">Résultat de l'analyse</p>
+                    <p class="text-xl font-bold"><span id="countNonFollowers" class="text-purple-400">0</span> <span class="text-sm">comptes identifiés</span></p>
                 </div>
-                <button id="downloadBtn" class="bg-purple-600 hover:bg-purple-500 px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-tighter transition-all shadow-lg text-center">Télécharger CSV</button>
+                <button id="downloadBtn" class="bg-purple-600 hover:bg-purple-500 px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-tighter transition-all active:scale-95 shadow-lg shadow-purple-500/20">
+                    <i class="fa-solid fa-file-csv mr-2"></i> Exporter CSV
+                </button>
             </div>
         </div>
 
-        <div id="resultCard" class="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden hidden mb-20">
-            <div class="max-h-[500px] overflow-y-auto">
-                <table class="w-full text-left font-bold text-sm text-gray-800 italic text-center">
+        <div id="resultCard" class="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden hidden mb-20 max-w-2xl mx-auto">
+            <div class="p-5 bg-gray-50/50 border-b border-gray-100 flex justify-between items-center">
+                <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Liste de nettoyage locale</span>
+                <span class="text-[10px] font-bold text-purple-500 bg-purple-50 px-3 py-1 rounded-full italic">Données sécurisées</span>
+            </div>
+            <div class="max-h-[600px] overflow-y-auto">
+                <table class="w-full text-left">
                     <tbody id="tableBody" class="divide-y divide-gray-100"></tbody>
                 </table>
             </div>
         </div>
 
-        <div class="mt-24 border-t border-gray-200 pt-16">
+        <div class="mt-24 border-t border-gray-200 pt-16 mb-16">
             <div class="text-center mb-16 font-black uppercase tracking-tighter text-purple-600 italic">
                 <h2 class="text-3xl mb-4 text-center">Guide de récupération</h2>
                 <p class="text-gray-500 text-sm font-bold uppercase tracking-widest text-center">Regardez la vidéo ci-dessous puis suivez les étapes</p>
@@ -138,36 +164,58 @@
                 <div class="bg-white p-5 rounded-3xl border border-gray-100 shadow-sm flex flex-col hover:border-purple-200 transition-all text-center">
                     <img src="photo1.jpg" onclick="openModal(this.src)" class="w-full h-56 object-cover rounded-2xl mb-5 zoom-overlay shadow-sm border border-gray-50 text-center">
                     <span class="text-purple-600 font-black text-[10px] uppercase mb-2">Étape 01</span>
-                    <p class="text-xs text-gray-600 leading-relaxed font-semibold italic text-center">Votre activité</p>
+                    <p class="text-xs text-gray-600 leading-relaxed font-semibold italic">Votre activité</p>
                 </div>
                 <div class="bg-white p-5 rounded-3xl border border-gray-100 shadow-sm flex flex-col hover:border-purple-200 transition-all text-center">
                     <img src="photo2.jpg" onclick="openModal(this.src)" class="w-full h-56 object-cover rounded-2xl mb-5 zoom-overlay shadow-sm border border-gray-50 text-center">
                     <span class="text-purple-600 font-black text-[10px] uppercase mb-2">Étape 02</span>
-                    <p class="text-xs text-gray-600 leading-relaxed font-semibold italic text-center">Exporter infos</p>
+                    <p class="text-xs text-gray-600 leading-relaxed font-semibold italic">Exporter infos</p>
                 </div>
                 <div class="bg-white p-5 rounded-3xl border border-gray-100 shadow-sm flex flex-col hover:border-purple-200 transition-all text-center">
                     <img src="photo3.jpg" onclick="openModal(this.src)" class="w-full h-56 object-cover rounded-2xl mb-5 zoom-overlay shadow-sm border border-gray-50 text-center">
                     <span class="text-purple-600 font-black text-[10px] uppercase mb-2">Étape 03</span>
-                    <p class="text-xs text-gray-600 leading-relaxed font-semibold italic text-center">Format JSON</p>
+                    <p class="text-xs text-gray-600 leading-relaxed font-semibold italic">Format JSON</p>
                 </div>
-                <div class="bg-white p-5 rounded-3xl border border-gray-100 shadow-sm flex flex-col hover:border-purple-200 transition-all text-center text-center">
+                <div class="bg-white p-5 rounded-3xl border border-gray-100 shadow-sm flex flex-col hover:border-purple-200 transition-all text-center">
                     <img src="photo4.jpg" onclick="openModal(this.src)" class="w-full h-56 object-cover rounded-2xl mb-5 zoom-overlay shadow-sm border border-gray-50">
-                    <span class="text-purple-600 font-black text-[10px] uppercase mb-2 text-center text-center">Étape 04</span>
-                    <p class="text-xs text-gray-600 leading-relaxed font-semibold italic text-center text-center">Dézippez tout</p>
+                    <span class="text-purple-600 font-black text-[10px] uppercase mb-2 text-center">Étape 04</span>
+                    <p class="text-xs text-gray-600 leading-relaxed font-semibold italic text-center">Dézippez tout</p>
                 </div>
             </div>
         </div>
+
+        <section class="max-w-4xl mx-auto text-left bg-white p-8 rounded-[40px] shadow-sm border border-gray-100 mb-10">
+            <h2 class="text-2xl font-black text-gray-900 uppercase italic mb-6">Foire Aux Questions</h2>
+            
+            <div class="mb-6">
+                <h3 class="font-bold text-gray-800 mb-2">Comment se désabonner de ceux qui ne me suivent pas en retour ?</h3>
+                <p class="text-gray-500 text-sm">InstaClean Pro compare votre liste d'abonnés et d'abonnements pour identifier exactement les comptes qui ne vous suivent pas. Avec le <strong>Pack Ultra Gold</strong>, le nettoyage se fait automatiquement et de manière furtive.</p>
+            </div>
+            
+            <div class="mb-6">
+                <h3 class="font-bold text-gray-800 mb-2">Est-ce que l'outil de nettoyage Instagram est sécurisé (Anti-Ban) ?</h3>
+                <p class="text-gray-500 text-sm">Oui. Contrairement aux applications frauduleuses, nous ne demandons jamais votre mot de passe. De plus, notre Algorithme Furtif intègre un délai de sécurité strict de 70 secondes entre chaque action pour respecter les limites d'Instagram.</p>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-gray-800 mb-2">Puis-je l'utiliser sur PC et Mac ?</h3>
+                <p class="text-gray-500 text-sm">Tout à fait. L'outil fonctionne directement depuis votre navigateur web (Chrome, Edge, Safari...) sur ordinateur, offrant une stabilité parfaite.</p>
+            </div>
+        </section>
+
     </main>
 
-    <footer class="text-center py-10 text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em] text-center">
-        © 2024 InstaClean Turbo | Developed by DJ Volka
+    <footer class="text-center py-6 text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em] border-t border-gray-200">
+        © 2026 InstaClean Pro | Developed by DJ Volka
     </footer>
 
     <script>
+        // Modal des images
         function openModal(src) { document.getElementById('imageModal').classList.remove('hidden'); document.getElementById('modalImg').src = src; }
         function closeModal() { document.getElementById('imageModal').classList.add('hidden'); }
-        
-        let dataFollowers = null; let dataFollowing = null;
+
+        let dataFollowers = null;
+        let dataFollowing = null;
 
         document.getElementById('fileFollowers').addEventListener('change', (e) => processFile(e.target.files[0], 'followers'));
         document.getElementById('fileFollowing').addEventListener('change', (e) => processFile(e.target.files[0], 'following'));
@@ -175,51 +223,95 @@
         function processFile(file, type) {
             if (!file) return;
             const statusLabel = document.getElementById(type === 'followers' ? 'statusFollowers' : 'statusFollowing');
-            statusLabel.innerText = "Lecture...";
+            statusLabel.innerText = "Lecture en cours...";
+            statusLabel.classList.add('loading-pulse');
+
             const reader = new FileReader();
             reader.onload = (e) => {
                 try {
                     const json = JSON.parse(e.target.result);
                     let list = [];
+
+                    // Extracteur original
                     const items = type === 'followers' ? (Array.isArray(json) ? json : []) : (json.relationships_following || []);
+                    
                     list = items.map(item => {
-                        if (item.string_list_data && item.string_list_data[0]) return item.string_list_data[0].value;
-                        return item.title || null;
+                        if (item.string_list_data && item.string_list_data[0] && item.string_list_data[0].value) {
+                            return item.string_list_data[0].value;
+                        }
+                        if (item.title) return item.title;
+                        return null;
                     }).filter(name => name !== null);
-                    if (type === 'followers') dataFollowers = list; else dataFollowing = list;
+
+                    if (type === 'followers') dataFollowers = list;
+                    else dataFollowing = list;
+
+                    // Update UI success state
                     const zone = document.getElementById(type === 'followers' ? 'zoneFollowers' : 'zoneFollowing');
                     zone.classList.add('success-border');
-                    statusLabel.innerText = `${list.length} chargés ✓`;
-                    if (dataFollowers && dataFollowing) checkReady();
-                } catch (err) { statusLabel.innerText = "Erreur fichier"; }
+                    statusLabel.innerText = `${list.length} comptes chargés ✓`;
+                    statusLabel.classList.remove('loading-pulse', 'text-gray-400');
+                    statusLabel.classList.add('text-green-600');
+
+                    checkReady();
+                } catch (err) {
+                    statusLabel.innerText = "Erreur : Format JSON invalide";
+                    statusLabel.classList.replace('text-gray-400', 'text-red-500');
+                    console.error(err);
+                }
             };
             reader.readAsText(file);
         }
 
         function checkReady() {
-            const fSet = new Set(dataFollowers);
-            const diff = dataFollowing.filter(u => !fSet.has(u));
-            renderResults(diff);
+            if (dataFollowers !== null && dataFollowing !== null) {
+                const followersSet = new Set(dataFollowers);
+                // On filtre : ceux que je suis (following) mais qui ne sont pas dans mes abonnés (followers)
+                const finalDiff = dataFollowing.filter(user => !followersSet.has(user));
+                
+                renderResults(finalDiff);
+            }
         }
 
         function renderResults(list) {
             document.getElementById('countNonFollowers').innerText = list.length;
             const tbody = document.getElementById('tableBody');
-            tbody.innerHTML = list.map(u => `
-                <tr class="hover:bg-purple-50 transition text-center">
-                    <td class="px-8 py-4 flex items-center justify-center space-x-3 italic text-gray-800 text-center">
-                        <div class="w-6 h-6 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-[8px] font-black">${u.charAt(0).toUpperCase()}</div>
-                        <span>@${u}</span>
-                    </td>
-                    <td class="px-8 py-4 text-right">
-                        <a href="https://instagram.com/${u}" target="_blank" class="text-[9px] font-black uppercase bg-gray-900 text-white px-3 py-2 rounded-lg hover:bg-purple-600 transition shadow-md">Profil</a>
-                    </td>
-                </tr>`).join('');
+            
+            if (list.length === 0) {
+                tbody.innerHTML = `<tr><td class="p-10 text-center text-gray-400 font-bold">Félicitations ! Tout le monde vous suit en retour.</td></tr>`;
+            } else {
+                tbody.innerHTML = list.map(user => `
+                    <tr class="hover:bg-gray-50/80 transition group">
+                        <td class="px-8 py-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center text-white text-[10px] font-black group-hover:rotate-12 transition">
+                                    ${user.charAt(0).toUpperCase()}
+                                </div>
+                                <span class="text-sm font-bold text-gray-800">@${user}</span>
+                            </div>
+                        </td>
+                        <td class="px-8 py-4 text-right">
+                            <a href="https://instagram.com/${user}" target="_blank" class="inline-flex items-center px-4 py-2 bg-white border border-gray-200 rounded-xl text-[10px] font-black hover:bg-purple-600 hover:text-white hover:border-purple-600 transition-all uppercase tracking-tighter">
+                                Profil <i class="fa-solid fa-arrow-up-right-from-square ml-2 opacity-50"></i>
+                            </a>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+
             document.getElementById('actionPanel').classList.remove('hidden');
             document.getElementById('resultCard').classList.remove('hidden');
+
+            // Export CSV original
             document.getElementById('downloadBtn').onclick = () => {
-                const blob = new Blob(["username\n" + list.join("\n")], { type: 'text/csv' });
-                const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'ma_liste.csv'; a.click();
+                const csvHeader = "username\n";
+                const csvRows = list.join("\n");
+                const blob = new Blob([csvHeader + csvRows], { type: 'text/csv;charset=utf-8;' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `cleaning_list_${new Date().toISOString().slice(0,10)}.csv`;
+                a.click();
             };
         }
     </script>
