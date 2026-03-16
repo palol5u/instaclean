@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Ultra Gold | InstaClean Turbo</title>
+    
+    <link rel="icon" type="image/png" href="logo-gold.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Design Ultra Premium avec halo lumineux en fond */
+        /* Design Ultra Premium Grand Format */
         body { 
-            background: #050505; 
-            background-image: radial-gradient(circle at 50% 0%, #1a1500 0%, #050505 70%);
+            background: #030303; 
+            background-image: radial-gradient(circle at 50% 0%, #1a1500 0%, #030303 80%);
             color: white; 
             font-family: 'Inter', sans-serif; 
         }
@@ -17,45 +20,77 @@
             background: linear-gradient(135deg, #DFB75A 0%, #FCF6BA 50%, #B38728 100%); 
             -webkit-background-clip: text; 
             -webkit-text-fill-color: transparent; 
-            text-shadow: 0 0 30px rgba(223, 183, 90, 0.2);
+            text-shadow: 0 0 40px rgba(223, 183, 90, 0.25);
         }
         .gold-button { 
             background: linear-gradient(135deg, #BF953F, #B38728); 
             box-shadow: 0 10px 40px rgba(179, 135, 40, 0.4); 
-            border: 1px solid #FCF6BA; /* Bordure dorée pour faire ressortir le bouton */
-            cursor: grab; /* Indique qu'on peut le glisser */
-            transition: all 0.3s ease;
+            border: 1px solid #FCF6BA; 
+            cursor: grab; 
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .gold-button:hover {
-            box-shadow: 0 15px 50px rgba(179, 135, 40, 0.6); 
-            transform: translateY(-2px);
+            box-shadow: 0 20px 60px rgba(179, 135, 40, 0.6); 
+            transform: translateY(-3px) scale(1.02);
         }
-        .gold-button:active { cursor: grabbing; }
+        .gold-button:active { cursor: grabbing; transform: translateY(0) scale(0.98); }
+        
         .gold-border { 
             border: 1px solid rgba(223, 183, 90, 0.3); 
-            box-shadow: inset 0 0 30px rgba(191, 149, 63, 0.05), 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            box-shadow: inset 0 0 50px rgba(191, 149, 63, 0.05), 0 30px 60px -15px rgba(0, 0, 0, 0.8);
         }
+        
+        @keyframes goldPulse {
+            0% { box-shadow: inset 0 0 50px rgba(191, 149, 63, 0.05), 0 30px 60px -15px rgba(0, 0, 0, 0.8), 0 0 0px rgba(223, 183, 90, 0); }
+            50% { box-shadow: inset 0 0 50px rgba(191, 149, 63, 0.1), 0 30px 60px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(223, 183, 90, 0.15); }
+            100% { box-shadow: inset 0 0 50px rgba(191, 149, 63, 0.05), 0 30px 60px -15px rgba(0, 0, 0, 0.8), 0 0 0px rgba(223, 183, 90, 0); }
+        }
+        .animate-glow { animation: goldPulse 4s infinite alternate; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center p-8 text-center">
+<body class="min-h-screen flex flex-col items-center justify-center p-4 md:p-10 text-center">
 
-    <div class="max-w-4xl w-full">
-        <div class="mb-6"><i class="fa-solid fa-crown text-4xl gold-gradient"></i></div>
-        <h1 class="text-6xl font-black uppercase italic gold-gradient mb-4">Pack Ultra Gold</h1>
-        <p class="text-gray-400 mb-12 tracking-[0.3em] text-xs font-bold uppercase">Algorithme Furtif V3.0</p>
+    <div class="max-w-5xl w-full">
+        
+        <div class="mb-8"><i class="fa-solid fa-crown text-6xl gold-gradient drop-shadow-2xl"></i></div>
+        <h1 class="text-5xl md:text-7xl font-black uppercase italic gold-gradient mb-6 tracking-tight">Pack Ultra Gold</h1>
+        <p class="text-gray-400 mb-16 tracking-[0.4em] text-sm md:text-base font-bold uppercase">Algorithme Furtif • Édition Sécurisée</p>
 
-        <div class="max-w-xl mx-auto p-12 rounded-[50px] bg-black/40 gold-border backdrop-blur-md">
+        <div class="max-w-3xl mx-auto p-10 md:p-16 rounded-[40px] bg-black/60 gold-border backdrop-blur-xl animate-glow">
             
-            <p class="text-[10px] text-gray-400 uppercase font-bold mb-6">Glissez ce bouton vers votre barre de favoris :</p>
+            <p class="text-[11px] text-gray-400 uppercase font-black mb-8 tracking-widest bg-white/5 inline-block px-6 py-2 rounded-full border border-white/10">
+                <i class="fa-solid fa-hand-pointer mr-2 text-[#BF953F]"></i> Glissez ce bouton vers votre barre de favoris
+            </p>
             
-            <a href="javascript:(function(){const APP_ID='936619743392459';const getCookie=n=>document.cookie.split('; ').find(r=>r.startsWith(n+'='))?.split('=')[1];const csrftoken=getCookie('csrftoken');const myId=getCookie('ds_user_id');if(!csrftoken||!myId){alert('Erreur: Connecte-toi à Instagram!');return;}const panel=document.createElement('div');panel.style='position:fixed;top:20px;left:50%;transform:translateX(-50%);width:380px;background:#050505;border:2px solid #BF953F;border-radius:25px;padding:25px;z-index:100000;box-shadow:0 25px 60px rgba(0,0,0,0.9);color:white;font-family:sans-serif;text-align:center;';panel.innerHTML='<div style=\x22font-weight:900;font-size:12px;color:#BF953F;text-transform:uppercase;letter-spacing:3px;margin-bottom:15px;\x22>Ultra Gold V3.0</div><div id=\x22g_status\x22 style=\x22font-size:18px;font-weight:900;margin-bottom:5px;letter-spacing:1px;\x22>Initialisation...</div><div id=\x22g_val\x22 style=\x22height:24px;margin-bottom:5px;display:flex;justify-content:center;align-items:center;\x22></div><div id=\x22g_info\x22 style=\x22font-size:11px;color:#888;margin-bottom:15px;text-transform:uppercase;\x22>Algorithme Furtif Actif</div><div style=\x22width:100%;background:#222;height:6px;border-radius:10px;overflow:hidden;\x22><div id=\x22g_bar\x22 style=\x22width:5%;height:100%;background:#BF953F;transition:all 0.5s;\x22></div></div><div id=\x22g_count\x22 style=\x22font-size:10px;margin-top:15px;font-weight:bold;color:#BF953F;\x22>Mode Rapide</div>';document.body.appendChild(panel);const fetchAll=async(e)=>{let l=[];let m='';do{const r=await fetch('https://www.instagram.com/api/v1/friendships/'+e+'/?count=100&max_id='+m,{headers:{'X-IG-App-ID':APP_ID}});const d=await r.json();l=l.concat(d.users.map(u=>({id:u.pk,n:u.username})));m=d.next_max_id;document.getElementById('g_status').innerText='Scan : '+l.length;}while(m);return l;};(async()=>{try{const flrs=await fetchAll(myId+'/followers');const fIds=new Set(flrs.map(u=>u.id));document.getElementById('g_bar').style.width='50%';const fing=await fetchAll(myId+'/following');const targets=fing.filter(u=>!fIds.has(u.id));document.getElementById('g_bar').style.width='100%';document.getElementById('g_status').innerText=targets.length+' cibles trouvées';for(let i=0;i<targets.length;i++){const t=targets[i];document.getElementById('g_status').innerText='@'+t.n;document.getElementById('g_val').innerHTML='';document.getElementById('g_count').innerText='NETTOYAGE '+(i+1)+'/'+targets.length;await fetch('https://www.instagram.com/api/v1/friendships/destroy/'+t.id+'/',{method:'POST',headers:{'X-CSRFToken':csrftoken,'X-IG-App-ID':APP_ID}});document.getElementById('g_val').innerHTML='<span style=\x22color:#22c55e;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);padding:4px 12px;border-radius:20px;font-size:10px;font-weight:900;\x22>✓ DÉSABONNÉ</span>';const sLimit=Math.floor(Math.random()*15)+15;let s=sLimit;const timer=setInterval(()=>{s--;document.getElementById('g_info').innerText='Suivant dans : '+s+'s';if(s<=0)clearInterval(timer);},1000);await new Promise(r=>setTimeout(r,sLimit*1000));}}catch(e){document.getElementById('g_status').innerText='ERREUR';}})();})();" 
-               class="gold-button inline-block text-black font-black px-12 py-5 rounded-2xl mb-8">
-                LANCER ULTRA GOLD
+            <a href="javascript:(function(){const APP_ID='936619743392459';const getCookie=n=>document.cookie.split('; ').find(r=>r.startsWith(n+'='))?.split('=')[1];const csrftoken=getCookie('csrftoken');const myId=getCookie('ds_user_id');if(!csrftoken||!myId){alert('Erreur: Connecte-toi à Instagram!');return;}const panel=document.createElement('div');panel.style='position:fixed;top:20px;left:50%;transform:translateX(-50%);width:380px;background:#050505;border:2px solid #BF953F;border-radius:25px;padding:25px;z-index:100000;box-shadow:0 25px 60px rgba(0,0,0,0.9);color:white;font-family:sans-serif;text-align:center;';panel.innerHTML='<div style=\x22font-weight:900;font-size:12px;color:#BF953F;text-transform:uppercase;letter-spacing:3px;margin-bottom:15px;\x22>Ultra Gold V3.0</div><div id=\x22g_status\x22 style=\x22font-size:18px;font-weight:900;margin-bottom:5px;letter-spacing:1px;\x22>Initialisation...</div><div id=\x22g_val\x22 style=\x22height:24px;margin-bottom:5px;display:flex;justify-content:center;align-items:center;\x22></div><div id=\x22g_info\x22 style=\x22font-size:11px;color:#888;margin-bottom:15px;text-transform:uppercase;\x22>Algorithme Furtif Actif</div><div style=\x22width:100%;background:#222;height:6px;border-radius:10px;overflow:hidden;\x22><div id=\x22g_bar\x22 style=\x22width:5%;height:100%;background:#BF953F;transition:all 0.5s;\x22></div></div><div id=\x22g_count\x22 style=\x22font-size:10px;margin-top:15px;font-weight:bold;color:#BF953F;\x22>Mode Rapide</div>';document.body.appendChild(panel);const fetchAll=async(e)=>{let l=[];let m='';do{const r=await fetch('https://www.instagram.com/api/v1/friendships/'+e+'/?count=100&max_id='+m,{headers:{'X-IG-App-ID':APP_ID}});const d=await r.json();l=l.concat(d.users.map(u=>({id:u.pk,n:u.username})));m=d.next_max_id;document.getElementById('g_status').innerText='Scan : '+l.length;}while(m);return l;};(async()=>{try{const flrs=await fetchAll(myId+'/followers');const fIds=new Set(flrs.map(u=>u.id));document.getElementById('g_bar').style.width='50%';const fing=await fetchAll(myId+'/following');const targets=fing.filter(u=>!fIds.has(u.id));document.getElementById('g_bar').style.width='100%';document.getElementById('g_status').innerText=targets.length+' cibles trouvées';for(let i=0;i<targets.length;i++){const t=targets[i];document.getElementById('g_status').innerText='@'+t.n;document.getElementById('g_val').innerHTML='';document.getElementById('g_count').innerText='NETTOYAGE '+(i+1)+'/'+targets.length;await fetch('https://www.instagram.com/api/v1/friendships/destroy/'+t.id+'/',{method:'POST',headers:{'X-CSRFToken':csrftoken,'X-IG-App-ID':APP_ID}});document.getElementById('g_val').innerHTML='<span style=\x22color:#22c55e;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);padding:4px 12px;border-radius:20px;font-size:10px;font-weight:900;\x22>✓ DÉSABONNÉ</span>';for(let w=70;w>0;w--){document.getElementById('g_info').innerText='Suivant dans : '+w+'s';await new Promise(r=>setTimeout(r,1000));}}}catch(e){document.getElementById('g_status').innerText='ERREUR';}})();})();" 
+               class="gold-button block w-full text-black font-black text-lg md:text-xl px-12 py-6 rounded-2xl mb-12 uppercase tracking-wide">
+                LANCER LE MOTEUR ULTRA GOLD
             </a>
             
-            <p class="text-[10px] text-yellow-500/50 uppercase tracking-[0.3em] font-black italic">
-                Optimisation validée • Vitesse 15-30s
-            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-white/10">
+                <div class="flex flex-col items-center">
+                    <div class="w-10 h-10 rounded-full bg-[#BF953F]/10 flex items-center justify-center mb-3 border border-[#BF953F]/30">
+                        <i class="fa-solid fa-shield-halved text-[#BF953F]"></i>
+                    </div>
+                    <p class="text-[10px] uppercase font-bold text-gray-300 tracking-wider">Sécurité 70s</p>
+                    <p class="text-[9px] text-gray-500 mt-1">Anti-Ban Instagram</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-10 h-10 rounded-full bg-[#BF953F]/10 flex items-center justify-center mb-3 border border-[#BF953F]/30">
+                        <i class="fa-solid fa-bolt text-[#BF953F]"></i>
+                    </div>
+                    <p class="text-[10px] uppercase font-bold text-gray-300 tracking-wider">100% Auto</p>
+                    <p class="text-[9px] text-gray-500 mt-1">Scan sans fichier JSON</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-10 h-10 rounded-full bg-[#BF953F]/10 flex items-center justify-center mb-3 border border-[#BF953F]/30">
+                        <i class="fa-solid fa-check-double text-[#BF953F]"></i>
+                    </div>
+                    <p class="text-[10px] uppercase font-bold text-gray-300 tracking-wider">Validation</p>
+                    <p class="text-[9px] text-gray-500 mt-1">Témoin en temps réel</p>
+                </div>
+            </div>
+
         </div>
     </div>
 
