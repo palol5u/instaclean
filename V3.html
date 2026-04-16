@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstaClean | Scanner Sécurisé Gratuit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f3f4f6; /* Gris très clair, doux pour les yeux */
+            color: #1f2937; /* Gris foncé pour le texte, plus lisible que le noir pur */
+            font-family: 'Inter', -apple-system, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .shield-icon {
+            color: #2563EB; /* Bleu confiance */
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+        .secure-badge {
+            display: inline-flex;
+            align-items: center;
+            background: #eff6ff;
+            color: #1d4ed8;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            gap: 6px;
+        }
+        h1 {
+            color: #111827;
+            font-size: 26px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+        }
+        p.subtitle {
+            color: #6b7280;
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+        .steps {
+            text-align: left;
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid #f1f5f9;
+            margin-bottom: 35px;
+        }
+        .step {
+            margin-bottom: 15px;
+            font-size: 15px;
+            color: #334155;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+        .step:last-child {
+            margin-bottom: 0;
+        }
+        .step-number {
+            background: #2563EB;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .step strong {
+            color: #0f172a;
+        }
+        /* Le style du bouton magique */
+        .magic-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #2563EB;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+            transition: all 0.2s ease;
+            cursor: grab;
+        }
+        .magic-button:active {
+            cursor: grabbing;
+            transform: scale(0.98);
+        }
+        .magic-button svg {
+            width: 20px;
+            height: 20px;
+        }
+        .alert {
+            background: #fef2f2;
+            color: #991b1b;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-top: 25px;
+            border: 1px solid #fee2e2;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <svg class="shield-icon" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+
+        <h1>InstaClean Scanner</h1>
+        
+        <div class="secure-badge">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C9.243 2 7 4.243 7 7v3H6c-1.103 0-2 .897-2 2v8c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-8c0-1.103-.897-2-2-2h-1V7c0-2.757-2.243-5-5-5zm6 10v8H6v-8h12zm-9-2V7c0-1.654 1.346-3 3-3s3 1.346 3 3v3H9z"/></svg>
+            100% Sécurisé • Aucun mot de passe requis
+        </div>
+
+        <p class="subtitle">Découvre instantanément qui ne te suit pas en retour. L'analyse se fait directement sur ton navigateur, tes données restent privées.</p>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div>Affiche ta barre de favoris sur ton navigateur (Raccourci : <strong>Ctrl+Maj+B</strong> sur Windows ou <strong>Cmd+Maj+B</strong> sur Mac).</div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div>Clique, maintiens et <strong>glisse le bouton bleu</strong> ci-dessous dans ta barre de favoris.</div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div>Ouvre <strong>Instagram.com</strong> sur ton ordinateur, connecte-toi, et clique sur ton nouveau favori !</div>
+            </div>
+        </div>
+
+        <a class="magic-button" href="javascript:(function(){const APP_ID='936619743392459';const getCookie=n=>document.cookie.split('; ').find(r=>r.startsWith(n+'='))?.split('=')[1];const csrftoken=getCookie('csrftoken');const myId=getCookie('ds_user_id');if(!csrftoken||!myId){alert('Erreur: Connecte-toi à Instagram sur ton navigateur d\'abord !');return;}if(document.getElementById('ic_panel'))return;const panel=document.createElement('div');panel.id='ic_panel';panel.style='position:fixed;top:20px;left:50%;transform:translateX(-50%);width:380px;max-height:80vh;background:#ffffff;border:1px solid #e5e7eb;border-radius:16px;padding:24px;z-index:100000;box-shadow:0 20px 40px rgba(0,0,0,0.15);color:#111827;font-family:-apple-system,BlinkMacSystemFont,\x22Segoe UI\x22,Roboto,sans-serif;text-align:center;display:flex;flex-direction:column;';panel.innerHTML='<div style=\x22font-weight:700;font-size:14px;color:#2563EB;text-transform:uppercase;letter-spacing:1px;margin-bottom:15px;display:flex;align-items:center;justify-content:center;gap:8px;\x22><svg width=\x2216\x22 height=\x2216\x22 fill=\x22currentColor\x22 viewBox=\x220 0 24 24\x22><path d=\x22M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\x22/></svg>Scanner Sécurisé</div><div id=\x22g_status\x22 style=\x22font-size:16px;font-weight:700;margin-bottom:15px;\x22>Récupération des données...</div><div style=\x22width:100%;background:#f3f4f6;height:6px;border-radius:10px;overflow:hidden;margin-bottom:15px;\x22><div id=\x22g_bar\x22 style=\x22width:5%;height:100%;background:#2563EB;transition:all 0.5s;\x22></div></div><div id=\x22g_list\x22 style=\x22overflow-y:auto;text-align:left;font-size:14px;flex-grow:1;margin-bottom:10px;padding-right:5px;max-height:300px;\x22></div><div id=\x22g_promo\x22 style=\x22display:none;margin-top:10px;background:#f8fafc;padding:12px;border-radius:12px;border:1px solid #e2e8f0;\x22><p style=\x22font-size:12px;color:#475569;margin:0 0 8px 0;font-weight:500;\x22>La flemme de te désabonner à la main ?</p><a href=\x22https://instaclean.vercel.app/\x22 target=\x22_blank\x22 style=\x22background:#111827;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-weight:600;font-size:13px;display:inline-block;width:100%;box-sizing:border-box;\x22>Passer à la version PRO</a></div><button id=\x22ic_close\x22 style=\x22margin-top:12px;background:none;border:none;color:#6b7280;cursor:pointer;font-size:13px;font-weight:500;padding:8px;\x22>Fermer le scanner</button>';document.body.appendChild(panel);document.getElementById('ic_close').addEventListener('click',function(){panel.remove();});const fetchAll=async(e)=>{let l=[];let m='';do{const r=await fetch('https://www.instagram.com/api/v1/friendships/'+e+'/?count=100&max_id='+m,{headers:{'X-IG-App-ID':APP_ID}});const d=await r.json();l=l.concat(d.users.map(u=>({id:u.pk,n:u.username})));m=d.next_max_id;document.getElementById('g_status').innerText='Analyse en cours : '+l.length;}while(m);return l;};(async()=>{try{document.getElementById('g_status').innerText='Analyse de tes abonnés...';const flrs=await fetchAll(myId+'/followers');const fIds=new Set(flrs.map(u=>u.id));document.getElementById('g_bar').style.width='50%';document.getElementById('g_status').innerText='Analyse de tes abonnements...';const fing=await fetchAll(myId+'/following');const targets=fing.filter(u=>!fIds.has(u.id));document.getElementById('g_bar').style.width='100%';document.getElementById('g_status').innerText=targets.length+' comptes trouvés';const listDiv=document.getElementById('g_list');if(targets.length===0){listDiv.innerHTML='<div style=\x22text-align:center;color:#10b981;padding:20px;font-weight:600;\x22>Tout le monde te suit en retour ! 🎉</div>';}else{targets.forEach(t=>{const item=document.createElement('div');item.style='display:flex;justify-content:space-between;align-items:center;padding:10px 8px;border-bottom:1px solid #f3f4f6;';item.innerHTML='<span style=\x22font-weight:500;\x22>@'+t.n+'</span><a href=\x22https://www.instagram.com/'+t.n+'\x22 target=\x22_blank\x22 style=\x22color:#2563EB;text-decoration:none;font-size:12px;font-weight:600;background:#eff6ff;padding:4px 10px;border-radius:6px;\x22>Voir</a>';listDiv.appendChild(item);});document.getElementById('g_promo').style.display='block';}}catch(e){document.getElementById('g_status').innerText='ERREUR LORS DU SCAN';console.error(e);}})();})();" onclick="event.preventDefault(); alert('Ne clique pas ici ! Glisse ce bouton dans ta barre de favoris en haut de ton navigateur 😊');">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            Scanner InstaClean
+        </a>
+        
+        <br>
+        <div class="alert">Cette méthode sécurisée fonctionne uniquement sur ordinateur (PC/Mac).</div>
+    </div>
+
+</body>
+</html>
